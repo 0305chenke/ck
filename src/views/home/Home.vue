@@ -1,67 +1,41 @@
 <template>
   <el-container>
     <el-header>
-      <div class="navBar">
-        <el-row>
-          <el-col :span="6">
-             <span class="my">我的个人空间</span>
-          </el-col>
-          <el-col :span="14">
-             <el-menu  
-             class="el-menu-demo" 
-             mode="horizontal"
-             active-text-color="#00A4FF">
-              <el-menu-item index="1">首页</el-menu-item>
-              <el-menu-item index="2">个人中心</el-menu-item>
-              <el-menu-item index="3">我的笔记</el-menu-item>
-              <el-menu-item index="4">我的随机</el-menu-item>
-              <el-menu-item index="5">关于</el-menu-item>
-            </el-menu>
-          </el-col>
-          <el-col :span="4" class="right">
-            <span @click="changeLogin">登录</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>注册</span>
-            <el-divider direction="vertical"></el-divider>
-            <span class="el-icon-chat-dot-square" 
-            @mouseenter="wxFlag=!wxFlag"
-            @mouseleave="wxFlag=!wxFlag"></span>
-          </el-col>
-        </el-row>
-        <el-dialog title="登录" :visible.sync="loginVisible" center :show-close="false">
-          <Login></Login>
-        </el-dialog>
-        <Wx class="wx" v-if="wxFlag"></Wx>
-      </div>
+      <Head></Head>
     </el-header>
     <el-main>
-      <div class="w"></div>
+      <div class="w">
+         <div class="huanying">欢迎访问我的个人网站</div>
+         <div class="box"></div>
+          <div class="fanzhuan">
+              <div class="zm">欢迎访问~</div>
+              <div class="fm">welcome~</div>
+          </div>
+      </div>
     </el-main>
-    <el-footer>Footer</el-footer>
+    <el-footer>
+      <Foot></Foot>
+    </el-footer>
   </el-container>
 </template>
 <script>
-import Login from '../login/Login'
-import Wx from '../wx/Wx'
+import Head from '../../components/head/Head'
+import Foot from '../../components/foot/Foot'
 export default {
    components: {
-     Login,
-     Wx
+     Head,
+     Foot
    },
    data() {
       return {
-        wxFlag: false
+        
       }
    },
    computed: {
-     loginVisible() {
-      return this.$store.state.loginVisible
-     }
+
    },
    methods: {
-     changeLogin() {
-       this.$store.commit('changeLoginVisible')
-     }
+    
    },
    created() {
    },
@@ -70,17 +44,18 @@ export default {
 }
 </script>
 
-<style>
-  .el-main {
-    padding: 0!important;
-  }
-  .w {
-    width: 1300px;
-    background-color: rgb(5, 219, 137);
-    height: 100%;
-    margin: 0 auto;
-  }
-  .el-menu.el-menu--horizontal {
+<style scoped>
+   .el-main {
+     position: relative;
+     padding: 0!important;
+     height: 100%;
+     background: url('./img/home_bg.jpg') no-repeat;
+     background-size: 100%;
+     background-color: #FF948E;
+     overflow: hidden;
+     
+   }
+   .el-menu.el-menu--horizontal {
     border-bottom: none!important;
   }
   .el-container {
@@ -89,47 +64,82 @@ export default {
   .el-header {
     height: 55px;
   }
-  .el-main {
-    height: 100%;
-    background-color: azure;
-  }
   .el-footer {
-    height: 55px;
-    background-color: blue;
+    height: 65px;
+    background-color: rgb(235, 233, 233);
   }
-  .navBar {
-    position: relative;
+  
+  .w {
+    width: 1300px;
+    background-color: transparent;
     height: 100%;
-    width: 1500px;
-    margin: 0 auto;
-    background-color: blueviolet;
-    background: url('../../assets/logo.png') no-repeat;
-    background-size: 60px;
-  }
-  .my {
-    font-size: 24px;
-    font-weight: 600;
-    margin-left: 65px;
-    line-height: 55px;
-    color: #C80000;
-    /* font-family:  Courier, monospace; */
-  }
-  .el-menu-item {
-    font-size: 18px!important;
     margin: 0 auto;
   }
-  .right {
-    padding-left: 120px;
-    line-height: 55px;
-    cursor: pointer;
+  .box {
+          margin-top: 420px;
+          width: 200px;
+          height: 100px;
+          background: url('./img/xiong.png') no-repeat;
+          animation: bear 1s steps(8) infinite,w 6s linear forwards;
+        }
+  @keyframes bear {
+      0% {
+          background-position: 0 0;
+      }
+      100% {
+          background-position: -1600px 0;
+      }
   }
-  .right span:hover {
-    color: #00A4FF;
+  @keyframes w {
+      0% {}
+      100% {
+          transform: translateX(1000px);
+      }
   }
-  .navBar .wx {
+  .huanying {
     position: absolute;
-    top: 40px;
-    right: 15px;
-    z-index: 999;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, #EC4988, #04C0A8);
+    background-clip: text;
+    color: transparent;
+    font-size: 32px;
+  }
+  .fanzhuan {
+      position: relative;
+      top: -281px;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      transition: all 1s;
+      animation:  zhuan 3s infinite;
+      animation-direction:alternate-reverse
+  }
+  .zm,
+  .fm {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      /* background-color: #D54B41; */
+      background: linear-gradient(to top, #D54B41 50%, #333146 50%);
+      text-align: center;
+      line-height: 200px;
+      backface-visibility:hidden;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+  }
+
+  .fm {
+      transform: rotateY(180deg);
+      background-color: #333146;
+  }
+
+  @keyframes zhuan {
+    0% {}
+    100% {transform: rotateY(180deg);}
   }
 </style>

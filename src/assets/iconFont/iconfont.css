@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "iconfont";
+    src: url('./iconfont.ttf');
+    /* IE9 */
+    src: url('./iconfont.ttf') format('embedded-opentype'), /* IE6-IE8 */
+    url('./iconfont.ttf') format('woff2'), url('./iconfont.ttf') format('woff'), url('iconfont.ttf?t=1594014199667') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('./iconfont.ttf') format('svg');
+    /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qq:before {
+    content: "\e62b";
+}
+
+.icon-iconsg:before {
+    content: "\e60a";
+}
+
+.icon-gongzhonghao:before {
+    content: "\e63e";
+}
+
+.icon-34:before {
+    content: "\e677";
+}
+
+.icon-youxiang:before {
+    content: "\e63f";
+}
+
+.icon-aihao:before {
+    content: "\e635";
+}
+
+.icon-zhuzhi:before {
+    content: "\e6c2";
+}
+
+.icon-zhuzhi_chengshi:before {
+    content: "\e689";
+}
+
+.icon-nianling:before {
+    content: "\e69d";
+}
+
+.icon-V:before {
+    content: "\e6ef";
+}
+
+.icon-ziyuan:before {
+    content: "\e651";
+}

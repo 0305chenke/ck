@@ -2,27 +2,32 @@
   <div class="login">
     <div class="toHome" @click="toHome">回首页</div>
     <div class="login-center">
-      <div class="textLogin">登录</div>
+      <div class="textLogin">注册</div>
       <el-row>
         <el-col :span="12" class="img">
           <img src="./img/login.jpg" alt="">
         </el-col>
         <el-col :span="12" class="shuju">
-          <el-form  label-width="80px" :model="login">
-            <el-form-item>
-              <i class="el-icon-user"></i>
-              <input type="text" v-model="login.userName" class="userName" placeholder="账户">
+          <el-form  label-width="80px" :model="register">
+            <el-form-item label="用户名:">
+              <input type="text" v-model="register.userName" class="userName" placeholder="账户">
             </el-form-item>
-            <el-form-item>
-              <i class="el-icon-lock"></i>
-              <input type="password" name="" id="" v-model="login.password" class="password" placeholder="密码">
+            <el-form-item label="性别:">
+               <el-radio v-model="register.sex" label="1">男</el-radio>
+               <el-radio v-model="register.sex" label="2">女</el-radio>
+            </el-form-item>
+            <el-form-item label="密码:">
+              <input type="password" name="" id="" v-model="register.password" class="password" placeholder="密码">
+            </el-form-item>
+            <el-form-item label="确认密码:">
+              <input type="password" name="" id="" v-model="register.passwordqr" class="password" placeholder="确认密码">
             </el-form-item>
             <div class="foot">
-              <div>登录</div>
+              <div>注册</div>
             </div>
             <div class="noNo">
-              <span>没有账号？</span>
-              <span class="zhuce" @click="toRegister">注册</span>
+              <span>有账号？</span>
+              <span class="zhuce" @click="toLogin">登录</span>
             </div>
           </el-form>
         </el-col>
@@ -35,9 +40,11 @@
 export default {
    data() {
       return {
-        login: {
+        register: {
           userName: '',
-          password: ''
+          sex: '',
+          password: '',
+          passwordqr: ''
         }
       }
    },
@@ -50,8 +57,8 @@ export default {
      changeLogin() {
        this.$store.commit('changeLoginVisible')
      },
-     toRegister() {
-       this.$router.push('/register')
+     toLogin() {
+       this.$router.push('/login')
      },
      toHome() {
        this.$router.push('/home')
@@ -87,7 +94,7 @@ export default {
     background-color: #fff;
     border-radius: 20px;
   }
-  .textLogin {
+   .textLogin {
     position: absolute;
     top: 20px;
     left: 50%;
@@ -100,7 +107,7 @@ export default {
   }
   .foot {
     position: absolute;
-    left: 50%;
+    left: 30%;
     bottom: -60px;
     transform: translateX(-50%);
   }
@@ -126,10 +133,6 @@ export default {
     outline: none;
     border-bottom: 1px solid #ccc;
     box-sizing: border-box;
-  }
-  i {
-    position: absolute;
-    top: 15px;
   }
   .foot div {
     position: absolute;
@@ -157,7 +160,8 @@ export default {
   .noNo {
     position: absolute;
     position: absolute;
-    bottom: -120px;
+    bottom: -90px;
+    left: 190px;
   }
   .noNo .zhuce {
     color: #ed429e;
