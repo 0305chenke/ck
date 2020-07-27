@@ -38,11 +38,11 @@ export default {
           },
           {
             name: '我喜欢节目',
-            text: ['中国足球超级联赛', '足协杯', '亚冠']
+            text: ['中超', '足协杯', '亚冠']
           },
           {
             name: '我的小目标',
-            text: ['蒙古自驾游', '云南大理', '四川成都美食']
+            text: ['草原', '大理', '成都']
           }
         ]
       }
@@ -54,6 +54,8 @@ export default {
    methods: {
    },
    created() {
+    //  禁止选中
+     document.onselectstart = new Function("event.returnValue=false");
    },
    mounted() {
    }

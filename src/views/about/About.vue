@@ -1,39 +1,43 @@
 <template>
   <el-container>
+    <let-it-snow
+      v-bind="snowConf"
+      :show="show"
+    ></let-it-snow>
     <el-header>
       <Head></Head>
     </el-header>
     <el-main>
       <nav>
-          <ul>
-            <el-tooltip content="姓名" placement="top" effect="light" :enterable="false">
-                  <li><span><i class="el-icon-user" aria-hidden="true">：陈可</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="性别" placement="top" effect="light" :enterable="false">
-                  <li><span><i class="iconfont icon-V" aria-hidden="true">：男</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="身高" placement="top" effect="light" :enterable="false">
-                  <li><span><i class="iconfont icon-iconsg" aria-hidden="true">：179</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="体重" placement="top" effect="light" :enterable="false">
-              <li><span><i class="iconfont icon-ziyuan" aria-hidden="true">：78</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="籍贯" placement="top" effect="light" :enterable="false">
-              <li><span><i class="iconfont icon-zhuzhi" aria-hidden="true">：山东</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="现住址" placement="top" effect="light" :enterable="false">
-              <li><span><i class="iconfont icon-zhuzhi_chengshi" aria-hidden="true">：北京</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="年龄" placement="top" effect="light" :enterable="false">
-              <li><span><i class="iconfont icon-nianling" aria-hidden="true">：25</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="爱好" placement="top" effect="light" :enterable="false">
-              <li><span><i class="iconfont icon-aihao" aria-hidden="true">：足球</i></span></li>
-            </el-tooltip>
-            <el-tooltip content="工作" placement="top" effect="light" :enterable="false">
-              <li><span><i class="iconfont icon-34" aria-hidden="true">：it</i></span></li>
-            </el-tooltip>
-          </ul>
+        <ul>
+          <el-tooltip content="姓名" placement="top" effect="light" :enterable="false">
+            <li><span><i class="el-icon-user" aria-hidden="true">：陈</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="性别" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-V" aria-hidden="true">：男</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="身高" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-iconsg" aria-hidden="true">：179</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="体重" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-ziyuan" aria-hidden="true">：78</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="籍贯" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-zhuzhi" aria-hidden="true">：山东</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="现住址" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-zhuzhi_chengshi" aria-hidden="true">：北京</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="年龄" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-nianling" aria-hidden="true">：25</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="爱好" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-aihao" aria-hidden="true">：足球</i></span></li>
+          </el-tooltip>
+          <el-tooltip content="工作" placement="top" effect="light" :enterable="false">
+            <li><span><i class="iconfont icon-34" aria-hidden="true">：it</i></span></li>
+          </el-tooltip>
+        </ul>
       </nav>
     </el-main>
     <el-footer>
@@ -47,6 +51,18 @@ import Food from '../../components/foot/Foot'
 export default {
    data() {
       return {
+        snowConf: {
+            windPower : 1,  
+            speed : 3,
+            count : 12,
+            size : 10,
+            opacity : 1,
+            images: [
+              require('./img/snow.png'),
+              require('./img/sock.png'),
+              require('./img/tree.png')]
+        },
+        show: false
       }
    },
    components: {
@@ -58,6 +74,7 @@ export default {
    created() {
    },
    mounted() {
+     this.show = true
    }
 }
 </script>

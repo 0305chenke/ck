@@ -20,7 +20,22 @@ import Food from '../../components/foot/Foot'
 export default {
    data() {
       return {
-         note: [
+         note: ''
+      }
+   },
+   components: {
+     Head,
+     Food
+   },
+   methods: {
+      noteClick(path) {
+         this.$router.push({path: path})
+         console.log(path);
+      }
+   },
+   created() {
+      this.note =  [
+         
             {
                id: 1,
                name: 'HTML',
@@ -31,7 +46,7 @@ export default {
                id: 2,
                name: 'CSS',
                img: require('./img/css.png'),
-               path: '/note/css'
+               path: '/css'
             },
             {
                id: 3,
@@ -49,22 +64,9 @@ export default {
                id: 5,
                name: 'java',
                img: require('./img/java.png'),
-               path: '/note/java'
+               path: '/java'
             }
          ]
-      }
-   },
-   components: {
-     Head,
-     Food
-   },
-   methods: {
-      noteClick(path) {
-         this.$router.push({path: path})
-         console.log(path);
-      }
-   },
-   created() {
    },
    mounted() {
    }
