@@ -20,11 +20,11 @@
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-vuex": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-service": "~5.0.8",
     "html-loader": "^1.1.0",
     "markdown-loader": "^5.1.0",
     "vue-loader": "^15.9.2",
-    "vue-markdown-loader": "^0.6.2",
+    "vue-markdown-loader": "^2.5.0",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
